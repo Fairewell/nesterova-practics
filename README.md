@@ -98,9 +98,11 @@ python main.py
  <span>Окно для просмотра домов</span>
  <br>
    <img width="400px" src="temps/img/house.png" alt="qr"/>
+   <br>
  <span>Окно добавления дома</span>
  <br>
    <img width="400px" src="temps/img/book_add.png" alt="qr"/>
+   <br>
  <span>Окно добавления брони</span>
  <br>
    <img width="400px" src="temps/img/house_add.png" alt="qr"/>
