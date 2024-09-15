@@ -79,5 +79,18 @@ python main.py
 ## Пример использования
 
 <p align="center">
- <img width="200px" src="temps/img/auth.png" alt="qr"/>
+ <span>Окно авторизации</span>
+ <img width="400px" src="temps/img/auth.png" alt="qr"/>
+ <span>Окно авторизации - Успех</span>
+ <img width="400px" src="temps/img/auth_suc.png" alt="qr"/>
+ <span>Главное окно</span>
+ <img width="400px" src="temps/img/main.png" alt="qr"/>
+ <span>Окно для просмотра брони</span>
+ <img width="400px" src="temps/img/book.png" alt="qr"/>
+ <span>Окно для просмотра домов</span>
+ <img width="400px" src="temps/img/house.png" alt="qr"/>
+ <span>Окно добавления дома</span>
+ <img width="400px" src="temps/img/book_add.png" alt="qr"/>
+ <span>Окно добавления брони</span>
+ <img width="400px" src="temps/img/house_add.png" alt="qr"/>
 </p>
