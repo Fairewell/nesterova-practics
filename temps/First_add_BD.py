@@ -68,10 +68,31 @@ def add_booking(house_id, customer_name, check_in_date, check_out_date, total_pr
     return booking_id if response.status_code in (201, 202) else None
 
 
+# Функция для добавления нового бронирования
+def add_auth(name, password):
+    auth_id = f'auth:{name.replace(" ", "_")}'
+    auth_data = {
+        "_id": auth_id,
+        "type": "auth",
+        "login": name,
+        "password": password,
+    }
+    response = requests.put(f"{COUCHDB_URL}/{DB_NAME}/{auth_id}", json=auth_data)
+
+    return auth_id if response.status_code in (201, 202) else None
+
+
 # Пример использования функций
 create_database()
-house_id = add_house("Дом у озера", 3, 150)
-booking_id = add_booking(house_id, "Иван Иванов", "2023-12-01", "2023-12-07", 900)
 
-print(f"Дом добавлен с ID: {house_id}")
-print(f"Бронирование добавлено с ID: {booking_id}")
+login_input = input("Enter the login: ")
+password_input = input("Enter the password: ")
+
+auth_id = add_auth(login_input, password_input)
+print(f"Пользователь добавлен с ID: {auth_id}")
+
+# house_id = add_house("Дом у озера", 3, 150)
+# booking_id = add_booking(house_id, "Иван Иванов", "2023-12-01", "2023-12-07", 900)
+
+# print(f"Дом добавлен с ID: {house_id}")
+# print(f"Бронирование добавлено с ID: {booking_id}")

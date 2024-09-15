@@ -19,37 +19,8 @@ from dotenv import load_dotenv
 from cmp.BookingWindow import AddBookingWindow
 from cmp.HouseWindow import AddHouseWindow
 from cmp.ShowHouseWindow import HousesDisplay
-
-
-class AuthWindow(QWidget):
-    def __init__(self, main_window):
-        super().__init__()
-        self.main_window = main_window
-        self.init_ui()
-        # Применение стилей
-
-    def init_ui(self):
-        layout = QVBoxLayout()
-        self.login_label = QLabel("Логин:")
-        self.login_input = QLineEdit()
-        self.password_label = QLabel("Пароль:")
-        self.password_input = QLineEdit()
-        self.password_input.setEchoMode(QLineEdit.Password)
-        self.login_button = QPushButton("Войти")
-        self.login_button.clicked.connect(self.login)
-
-        layout.addWidget(self.login_label)
-        layout.addWidget(self.login_input)
-        layout.addWidget(self.password_label)
-        layout.addWidget(self.password_input)
-        layout.addWidget(self.login_button)
-
-        self.setLayout(layout)
-
-    def login(self):
-        # Здесь можно добавить логику проверки логина и пароля
-        self.main_window.show_main_screen()
-        self.close()
+from cmp.ShowBookingWindow import ViewBookingsWindow
+from cmp.AuthorizationWindow import AuthWindow
 
 
 class MainWindow(QMainWindow):
@@ -113,9 +84,9 @@ class MainWindow(QMainWindow):
 
     def show_bookings(self):
         # Здесь можно добавить логику для отображения всех броней
-        QMessageBox.information(
-            self, "Просмотр броней", "Здесь будет список всех броней."
-        )
+        self.booking_display = ViewBookingsWindow(self)
+        self.central_widget.addWidget(self.booking_display)
+        self.central_widget.setCurrentWidget(self.booking_display)
 
     def show_houses(self):
         # Здесь можно добавить логику для отображения всех домов
@@ -139,8 +110,8 @@ class MainWindow(QMainWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     # Установка шрифта для всего приложения
-    font = QFont("Montserrat", 10, 400)
-    app.setFont(font)
+    # font = QFont("Montserrat", 10, 400)
+    # app.setFont(font)
     main_window = MainWindow()
     main_window.show()
     sys.exit(app.exec_())

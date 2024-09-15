@@ -61,11 +61,8 @@ class HousesDisplay(QWidget):
         self.main_window.show_main_screen()
 
     def init_ui(self):
-        layout = QGridLayout()
-        self.back_button = QPushButton("Назад")
-        self.back_button.clicked.connect(self.go_back)
-        layout.addWidget(self.back_button)
-        self.setLayout(layout)
+        self.layout = QGridLayout()
+        self.setLayout(self.layout)
 
     def load_houses(self):
         # Запрос списка домов из CouchDB
