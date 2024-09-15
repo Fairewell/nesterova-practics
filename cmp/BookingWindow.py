@@ -144,6 +144,17 @@ class AddBookingWindow(QWidget):
         add_URL = f"{self.main_window.COUCHDB_URL}/{self.main_window.NAME}/{booking_id}"
         response = requests.put(add_URL, json=booking_data)
         if response.status_code in (201, 202, 200):
+            # Обновление дома с добавлением нового бронирования
+            house_response = requests.get(
+                f"{self.main_window.COUCHDB_URL}/{self.main_window.NAME}/{selected_house_id}"
+            )
+            if house_response.status_code == 200:
+                house_doc = house_response.json()
+                house_doc["bookings"].append(booking_id)
+                requests.put(
+                    f"{self.main_window.COUCHDB_URL}/{self.main_window.NAME}/{selected_house_id}",
+                    json=house_doc,
+                )
             QMessageBox.information(
                 self, "Операция успешна", f"Бронь успешно добавлена с ID: {booking_id}"
             )
