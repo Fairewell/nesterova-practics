@@ -79,5 +79,5 @@ python main.py
 ## Пример использования
 
 <p align="center">
- <img width="200px" src="auth.png" alt="qr"/>
+ <img width="200px" src="temps/img/auth.png" alt="qr"/>
 </p>
