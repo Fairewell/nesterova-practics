@@ -82,11 +82,17 @@ python main.py
  <span>Окно авторизации</span>
    <br>
  <img width="400px" src="temps/img/auth.png" alt="qr"/>
+   <br>
  <span>Окно авторизации - Успех</span>
+   <br>
  <img width="400px" src="temps/img/auth_suc.png" alt="qr"/>
+   <br>
  <span>Главное окно</span>
+   <br>
  <img width="400px" src="temps/img/main.png" alt="qr"/>
+   <br>
  <span>Окно для просмотра брони</span>
+   <br>
  <img width="400px" src="temps/img/book.png" alt="qr"/>
  <span>Окно для просмотра домов</span>
  <img width="400px" src="temps/img/house.png" alt="qr"/>
