@@ -80,6 +80,7 @@ python main.py
 
 <p align="center">
  <span>Окно авторизации</span>
+   <br>
  <img width="400px" src="temps/img/auth.png" alt="qr"/>
  <span>Окно авторизации - Успех</span>
  <img width="400px" src="temps/img/auth_suc.png" alt="qr"/>
