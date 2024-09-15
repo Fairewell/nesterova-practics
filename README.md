@@ -94,10 +94,14 @@ python main.py
  <span>Окно для просмотра брони</span>
    <br>
  <img width="400px" src="temps/img/book.png" alt="qr"/>
+   <br>
  <span>Окно для просмотра домов</span>
- <img width="400px" src="temps/img/house.png" alt="qr"/>
+ <br>
+   <img width="400px" src="temps/img/house.png" alt="qr"/>
  <span>Окно добавления дома</span>
- <img width="400px" src="temps/img/book_add.png" alt="qr"/>
+ <br>
+   <img width="400px" src="temps/img/book_add.png" alt="qr"/>
  <span>Окно добавления брони</span>
- <img width="400px" src="temps/img/house_add.png" alt="qr"/>
+ <br>
+   <img width="400px" src="temps/img/house_add.png" alt="qr"/>
 </p>
