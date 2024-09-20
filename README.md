@@ -16,14 +16,21 @@
 
 ## Установка
 
-Установите npm-пакет с помощью команды:
+Скачайте репозиторий с помощью `git`(*если он установлен*):
 ```bash
    git clone https://github.com/Fairwell/nesterova-practics
 ```
 2. Перейдите в директорию проекта:
 ```bash
-   cd ваш_репозиторий
+   cd nesterova-practics
 ```
+3. Поставьте виртуальное окружение по необходимости:
+```bash
+   ctrl + shift + p
+   В открывщемся окне пишем:
+    Python: Create Enviroment -> venv -> Выбираем нужный python
+```
+
 3. Установите зависимости:
 ```bash
    pip install -r req.txt

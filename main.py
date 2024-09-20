@@ -11,6 +11,8 @@ from PyQt5.QtWidgets import (
     QLineEdit,
     QMessageBox,
     QStackedWidget,
+    QMenuBar,
+    QAction,
 )
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import QFile
@@ -35,8 +37,8 @@ class MainWindow(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Управление Тур Агентством")
-        self.setGeometry(300, 300, 600, 400)
+        self.setWindowTitle("База отдыха ")
+        self.setGeometry(300, 300, 900, 600)
 
         self.central_widget = QStackedWidget()
         self.setCentralWidget(self.central_widget)
@@ -47,6 +49,7 @@ class MainWindow(QMainWindow):
         self.main_screen = QWidget()
         self.central_widget.addWidget(self.main_screen)
         self.init_main_screen()
+        self.init_menu()  # Добавьте этот вызов
         self.load_stylesheet("stylesheet.qss")
 
     def load_stylesheet(self, filename):
@@ -78,6 +81,44 @@ class MainWindow(QMainWindow):
         layout.addWidget(self.add_booking_button)
 
         self.main_screen.setLayout(layout)
+
+    def init_menu(self):
+        """Создание верхнего меню для навигации."""
+        menubar = self.menuBar()
+
+        # Создаём основное меню
+        nav_menu = menubar.addMenu("Навигация")
+
+        # Создаём действия меню
+        main_action = QAction("Главная", self)
+        bookings_action = QAction("Мои бронирования", self)
+        houses_action = QAction("Все дома", self)
+        add_house_action = QAction("Добавить дом", self)
+        add_booking_action = QAction("Добавить бронь", self)
+        logout_action = QAction("Выйти", self)
+
+        # Добавляем действия в меню
+        nav_menu.addAction(main_action)
+        nav_menu.addAction(bookings_action)
+        nav_menu.addAction(houses_action)
+        nav_menu.addSeparator()
+        nav_menu.addAction(add_house_action)
+        nav_menu.addAction(add_booking_action)
+        nav_menu.addSeparator()
+        nav_menu.addAction(logout_action)
+
+        # Подключаем слоты для действий
+        main_action.triggered.connect(self.show_main_screen)
+        bookings_action.triggered.connect(self.show_bookings)
+        houses_action.triggered.connect(self.show_houses)
+        add_house_action.triggered.connect(self.show_add_house)
+        add_booking_action.triggered.connect(self.show_add_booking)
+        logout_action.triggered.connect(self.logout)
+    
+    def logout(self):
+        """Выйти из аккаунта и показать окно авторизации."""
+        self.central_widget.setCurrentWidget(self.auth_window)
+        # Можно добавить дополнительную логику очистки сессии и т.д.
 
     def show_main_screen(self):
         self.central_widget.setCurrentWidget(self.main_screen)
